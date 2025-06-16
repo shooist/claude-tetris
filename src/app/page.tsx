@@ -6,6 +6,7 @@ import NextPiece from '@/components/NextPiece';
 import GameControls from '@/components/GameControls';
 import { useGameState } from '@/hooks/useGameState';
 import { useKeyboardControls } from '@/hooks/useKeyboardControls';
+import { useGameLoop } from '@/hooks/useGameLoop';
 
 export default function Home() {
   const {
@@ -20,6 +21,14 @@ export default function Home() {
     hardDrop,
     getDisplayBoard,
   } = useGameState();
+
+  // ゲームループを設定（自動落下）
+  useGameLoop({
+    isPlaying: gameState.isPlaying,
+    isPaused: gameState.isPaused,
+    level: gameState.level,
+    onTick: movePieceDown,
+  });
 
   // キーボード操作を設定
   useKeyboardControls({
@@ -44,6 +53,17 @@ export default function Home() {
             <div className="bg-red-600 text-white px-6 py-3 rounded-lg inline-block">
               <h2 className="text-2xl font-bold">ゲームオーバー</h2>
               <p className="text-sm">最終スコア: {gameState.score.toLocaleString()}</p>
+              <p className="text-xs mt-1">レベル {gameState.level} / {gameState.lines} ライン消去</p>
+            </div>
+          </div>
+        )}
+
+        {/* 一時停止表示 */}
+        {gameState.isPlaying && gameState.isPaused && (
+          <div className="text-center mb-4">
+            <div className="bg-yellow-600 text-white px-4 py-2 rounded-lg inline-block">
+              <h2 className="text-lg font-bold">一時停止中</h2>
+              <p className="text-xs">P キーまたは Esc キーで再開</p>
             </div>
           </div>
         )}
