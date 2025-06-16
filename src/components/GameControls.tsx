@@ -40,7 +40,11 @@ export default function GameControls({ onStart, onPause, onReset, isPlaying, isP
           <li>↓ : 高速落下</li>
           <li>↑ : 回転</li>
           <li>Space : ハードドロップ</li>
+          <li>P/Esc : 一時停止</li>
         </ul>
+        <div className="mt-3 text-xs text-gray-500">
+          <p>※ キーの長押しで連続移動</p>
+        </div>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import ScoreBoard from '@/components/ScoreBoard';
 import NextPiece from '@/components/NextPiece';
 import GameControls from '@/components/GameControls';
 import { useGameState } from '@/hooks/useGameState';
+import { useKeyboardControls } from '@/hooks/useKeyboardControls';
 
 export default function Home() {
   const {
@@ -12,8 +13,25 @@ export default function Home() {
     startGame,
     togglePause,
     resetGame,
+    movePieceLeft,
+    movePieceRight,
+    movePieceDown,
+    rotatePiece,
+    hardDrop,
     getDisplayBoard,
   } = useGameState();
+
+  // キーボード操作を設定
+  useKeyboardControls({
+    onMoveLeft: movePieceLeft,
+    onMoveRight: movePieceRight,
+    onMoveDown: movePieceDown,
+    onRotate: rotatePiece,
+    onHardDrop: hardDrop,
+    onPause: togglePause,
+    isPlaying: gameState.isPlaying,
+    isPaused: gameState.isPaused,
+  });
 
   return (
     <main className="min-h-screen bg-gray-900 p-4">
