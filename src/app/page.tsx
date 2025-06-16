@@ -43,27 +43,36 @@ export default function Home() {
   });
 
   return (
-    <main className="min-h-screen bg-gray-900 p-4">
+    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-8 text-white">テトリス</h1>
+        {/* ヘッダー */}
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">
+            🎮 テトリス
+          </h1>
+          <p className="text-gray-400">Next.jsで作った本格テトリスゲーム</p>
+        </div>
         
         {/* ゲームオーバー表示 */}
         {gameState.gameOver && (
-          <div className="text-center mb-4">
-            <div className="bg-red-600 text-white px-6 py-3 rounded-lg inline-block">
-              <h2 className="text-2xl font-bold">ゲームオーバー</h2>
-              <p className="text-sm">最終スコア: {gameState.score.toLocaleString()}</p>
-              <p className="text-xs mt-1">レベル {gameState.level} / {gameState.lines} ライン消去</p>
+          <div className="text-center mb-6">
+            <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-xl inline-block shadow-2xl border border-red-500">
+              <h2 className="text-3xl font-bold mb-2">🎯 ゲームオーバー</h2>
+              <div className="bg-black/20 rounded-lg p-3 mt-3">
+                <p className="text-lg">最終スコア: <span className="font-mono text-yellow-300">{gameState.score.toLocaleString()}</span></p>
+                <p className="text-sm opacity-90">レベル {gameState.level} / {gameState.lines} ライン消去</p>
+              </div>
+              <p className="text-xs mt-2 opacity-75">お疲れ様でした！ リセットボタンで再挑戦</p>
             </div>
           </div>
         )}
 
         {/* 一時停止表示 */}
         {gameState.isPlaying && gameState.isPaused && (
-          <div className="text-center mb-4">
-            <div className="bg-yellow-600 text-white px-4 py-2 rounded-lg inline-block">
-              <h2 className="text-lg font-bold">一時停止中</h2>
-              <p className="text-xs">P キーまたは Esc キーで再開</p>
+          <div className="text-center mb-6">
+            <div className="bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-6 py-3 rounded-xl inline-block shadow-xl border border-yellow-500">
+              <h2 className="text-xl font-bold">⏸️ 一時停止中</h2>
+              <p className="text-sm">P キーまたは Esc キーで再開</p>
             </div>
           </div>
         )}
