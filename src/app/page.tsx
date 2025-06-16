@@ -5,21 +5,15 @@ import GameBoard from '@/components/GameBoard';
 import ScoreBoard from '@/components/ScoreBoard';
 import NextPiece from '@/components/NextPiece';
 import GameControls from '@/components/GameControls';
-
-// テスト用の初期データ
-const createEmptyBoard = () => Array(20).fill(null).map(() => Array(10).fill(0));
-const testNextPiece = [
-  [0, 1, 1, 0],
-  [1, 1, 0, 0],
-  [0, 0, 0, 0],
-  [0, 0, 0, 0]
-];
+import { createEmptyBoard } from '@/utils/gameUtils';
+import { getRandomTetromino } from '@/utils/tetrominoes';
 
 export default function Home() {
   const [board] = useState(createEmptyBoard());
   const [score] = useState(0);
   const [level] = useState(1);
   const [lines] = useState(0);
+  const [nextPiece] = useState(getRandomTetromino());
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -46,7 +40,7 @@ export default function Home() {
           {/* 左サイドバー */}
           <div className="space-y-4">
             <ScoreBoard score={score} level={level} lines={lines} />
-            <NextPiece piece={testNextPiece} />
+            <NextPiece piece={nextPiece} />
           </div>
           
           {/* メインゲームボード */}
