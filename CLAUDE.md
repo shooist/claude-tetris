@@ -1,30 +1,30 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+このファイルは、このリポジトリでコードを操作する際のClaude Code (claude.ai/code) に対するガイダンスを提供します。
 
-## Project Overview
+## プロジェクト概要
 
-This is a Tetris game implementation. The project appears to be in its initial setup phase.
+これはテトリスゲームの実装です。プロジェクトは初期セットアップ段階にあります。
 
-## Development Setup
+## 開発セットアップ
 
-Since this is a new project, common development commands will be established as the project grows. Typical Tetris game implementations may include:
+これは新しいプロジェクトなので、プロジェクトの成長に伴って一般的な開発コマンドが確立されます。典型的なテトリスゲームの実装には以下が含まれます：
 
-- Game engine/framework setup (HTML5 Canvas, React, or game engines)
-- Game state management (grid, pieces, scoring)
-- Input handling (keyboard controls)
-- Game logic (piece rotation, line clearing, collision detection)
+- ゲームエンジン/フレームワークのセットアップ（HTML5 Canvas、React、またはゲームエンジン）
+- ゲーム状態管理（グリッド、ピース、スコアリング）
+- 入力処理（キーボードコントロール）
+- ゲームロジック（ピース回転、ライン消去、衝突検出）
 
-## Architecture Considerations
+## アーキテクチャの考慮事項
 
-For a Tetris implementation, key architectural components typically include:
+テトリスの実装において、主要なアーキテクチャコンポーネントには通常以下が含まれます：
 
-- **Game State**: Managing the playing field grid, current piece, next piece, score, level
-- **Piece System**: Tetromino definitions, rotation logic, movement validation
-- **Game Loop**: Rendering, input processing, game state updates
-- **Collision Detection**: Piece-to-grid and piece-to-piece collision checking
-- **Line Clearing**: Detection and removal of completed lines
+- **ゲーム状態**: プレイフィールドグリッド、現在のピース、次のピース、スコア、レベルの管理
+- **ピースシステム**: テトロミノの定義、回転ロジック、移動検証
+- **ゲームループ**: レンダリング、入力処理、ゲーム状態更新
+- **衝突検出**: ピース対グリッドおよびピース対ピースの衝突チェック
+- **ライン消去**: 完成したラインの検出と削除
 
-## File Organization
+## ファイル構成
 
-As the project develops, consider organizing code into logical modules for maintainability and testing.
+プロジェクトが発展するにつれて、保守性とテストのためにコードを論理的なモジュールに整理することを検討してください。
